@@ -9,9 +9,11 @@ export default class Featured extends Component {
     const settings = {
       dots: true,
       infinite: true,
+      rows: 1,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1
+
     };
     return (
       <div>
@@ -24,21 +26,11 @@ export default class Featured extends Component {
           <div>
           <img src={"https://bit.ly/36E7BuK"} class="center2" width="300" height="450" />
           </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+        
         </Slider>
       </div>
+            
     );
+    
   }
 }
-

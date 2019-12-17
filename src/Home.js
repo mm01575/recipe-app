@@ -15,7 +15,7 @@ const Home = () => {
     }, [query]);
   
     const getRecipes = async () => {
-      const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+      const response = await fetch(`http://10.77.60.243:8080/COM3014_CW_Group10/api/recipe/`);
       const data = await response.json();
       setRecipes(data.hits);
       console.log(data.hits);
@@ -57,4 +57,3 @@ const Home = () => {
  
 export default Home;
 
-//https://www.kirupa.com/react/creating_single_page_app_react_using_react_router.htm
