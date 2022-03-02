@@ -32,7 +32,11 @@ class AddRecipe extends React.Component {
 
     axios.get('http://localhost:8080/COM3014_CW_Group10/api/ingredient', {withCredentials: true}).then(
       res => {
-        this.setState({ingredientsList : res.data})
+        var pIngredientsList = [];
+        res.data.forEach( ingredient => {
+          pIngredientsList[ingredient.id] = ingredient;
+        });
+        this.setState({ingredientsList : pIngredientsList})
     });
   }
 
@@ -76,7 +80,7 @@ class AddRecipe extends React.Component {
   }
 
   saveRecipeItem(recipeItem) {
-    axios.post('http://localhost:8080/COM3014_CW_Group10/api/recipe/' + this.state.recipeId + '/new/' + recipeItem.id, { recipeId: this.state.recipeId, ingredientId: recipeItem.id, quantifier: recipeItem.unit, amount: recipeItem.amount })
+    axios.post('http://localhost:8080/COM3014_CW_Group10/api/recipe/addrecipeitem', { recipeID: this.state.recipeId, ingredientID: recipeItem.id, quantifier: recipeItem.unit, amount: recipeItem.amount })
       .then(res => {
           if (res.data.nature === "MESSAGE_SUCCESS") {
           }
